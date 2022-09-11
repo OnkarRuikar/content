@@ -19,7 +19,7 @@ Each item in the array represents the decibel value for a specific frequency. Th
 
 If you need higher performance and don't care about precision, you can use {{domxref("AnalyserNode.getByteFrequencyData()")}} instead, which works on a {{jsxref("Uint8Array")}}.
 
-## Syntax
+# Syntax
 
 ```js
 getFloatFrequencyData(array)
