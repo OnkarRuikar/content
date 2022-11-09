@@ -1,15 +1,9 @@
 name: Create syncrhornize with BCD PR
 
 on:
+  push:
   pull_request:
-    branches:
-      - main
   workflow_dispatch:
-    inputs:
-      name:
-        description: 'Releasae tag or main'
-        default: 'main'
-        required: false
 
 jobs:
   sync:
