@@ -1,0 +1,56 @@
+name: Create syncrhornize with BCD PR
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Releasae tag or main'
+        default: 'main'
+        required: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+          cache: yarn
+
+      - uses: actions/checkout@v3
+        with:
+          repository: mdn/browser-compat-data
+          ref: main
+          path: BCD
+
+      - name: Build BCD
+        env:
+          HUSKY: 0
+        run: |
+          cd BCD
+          yarn --frozen-lockfile
+          yarn build
+          cd ..
+
+      - uses: actions/checkout@v3
+        with:
+          repository: mdn/content
+          ref: main
+          path: content
+
+      - name: Run script
+        run: |
+          wget -q -O sync_bcd.mjs https://gist.githubusercontent.com/OnkarRuikar/0b332d3dcc31ea380e128005b5c1f65d/raw/f756282acd2bbeb448ad3627f6346615e4832022/sync_bcd.mjs
+          node sync_bcd.mjs ./BCD/build/data.json ./content
+          cd content
+
+      - name: Create PR with only fixable issues
+        uses: peter-evans/create-pull-request@v4
+        with:
+          commit-message: "chore: synchronize with BCD"
+          branch: sync_bcd
+          title: "Synchronize with BCD"
+          body: |
+            The PR updates the content as per latest BCD
