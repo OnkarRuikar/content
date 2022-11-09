@@ -1,8 +1,6 @@
 name: Create syncrhornize with BCD PR
 
 on:
-  push:
-  pull_request:
   workflow_dispatch:
 
 jobs:
