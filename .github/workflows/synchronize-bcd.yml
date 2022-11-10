@@ -1,0 +1,91 @@
+name: Create syncrhornize with BCD PR
+
+on:
+  pull_request:
+  schedule:
+    - cron: "10 * * * *"
+  workflow_dispatch:
+
+env:
+  ABORT: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check if PR already exists
+        run: |
+          latest=$(curl -sL https://api.github.com/repos/mdn/browser-compat-data/releases/latest | grep -oP '(?<=tag_name....)[^"]+')
+          prs=$(curl -sL "https://api.github.com/search/issues?q=is:pr+repo:mdn/content+author:onkarruikar+Synchronize+with+BCD+$latest")
+          pr_count=$(echo "$prs" | grep -oP '(?<=^  .total_count...)\d+')
+          echo "Latest version $latest, PRs $pr_count"
+          if [[ $pr_count != "0" ]]
+          then
+            echo -e "PR(s) already exist:\n $(echo $prs | grep -oP '(?<=title....)[^\"]+')"
+            echo "ABORT=true" >> $GITHUB_ENV
+          fi
+          echo "VERSION=$latest" >> $GITHUB_ENV
+
+      - uses: actions/checkout@v3
+        if: ${{ env.ABORT == 'false' }}
+        with:
+          repository: mdn/browser-compat-data
+          ref: main
+          path: BCD
+
+      - name: Setup Node.js environment
+        if: ${{ env.ABORT == 'false' }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+
+      - name: Build BCD
+        if: ${{ env.ABORT == 'false' }}
+        env:
+          HUSKY: 0
+        run: |
+          cd BCD
+          yarn --frozen-lockfile
+          yarn build
+          cd ..
+
+      - uses: actions/checkout@v3
+        if: ${{ env.ABORT == 'false' }}
+        with:
+          repository: OnkarRuikar/content
+          ref: main
+          path: content
+
+      - name: Install SSH
+        if: ${{ env.ABORT == 'false' }}
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SKEY }}
+          name: id_ed25519
+          known_hosts: ${{ secrets.KH }}
+
+      - name: Run synchronization script and create PR
+        if: ${{ env.ABORT == 'false' }}
+        run: |
+          cd content
+          git remote add mdn git@github.com:mdn/content.git
+          git pull mdn main
+          cd ..
+          wget -q -O sync_bcd.mjs https://gist.githubusercontent.com/OnkarRuikar/0b332d3dcc31ea380e128005b5c1f65d/raw/f756282acd2bbeb448ad3627f6346615e4832022/sync_bcd.mjs
+          echo "Processing BCD $VERSION data"
+          node sync_bcd.mjs ./BCD/build/data.json ./content
+          cd content
+          if test -z "$(git status -s)"
+          then
+            echo "Nothing to commit! o/"
+          else
+            $(git branch -D sync_bcd || exit 0)
+            git checkout -b sync_bcd main
+            git -c author.name=OnkarRuikar -c author.email=OnkarRuikar@users.noreply.github.com -c committer.name=OnkarRuikar -c committer.email=OnkarRuikar@users.noreply.github.com commit -am "Synchronize with BCD $VERSION"
+            git push -u origin sync_bcd
+            gh pr create --title "Synchronize with BCD $VERSION" --body "" --repo "mdn/content"
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.R_PAT }}
+          VERSION: ${{ env.VERSION }}
