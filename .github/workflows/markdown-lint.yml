@@ -20,7 +20,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v28.0.0
+        with:
+          files: |
+            **/*.md
+          
       - name: Setup Node.js environment
+        if: steps.changed-files.outputs.any_changed == 'true'
         uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
@@ -33,6 +41,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Lint markdown files
+        if: steps.changed-files.outputs.any_changed == 'true'
         run: |
           echo "::add-matcher::.github/workflows/markdownlint-problem-matcher.json"
           yarn lint:md
