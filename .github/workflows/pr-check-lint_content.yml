@@ -17,6 +17,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout BASE
+        uses: actions/checkout@v3
+
       - name: Get changed files
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -30,10 +33,6 @@ jobs:
           # filter out files that are not markdown
           DIFF_DOCUMENTS=$(echo "${DIFF_DOCUMENTS}" | egrep -i "^files/.*\.md$" | xargs)
           echo "DIFF_DOCUMENTS=${DIFF_DOCUMENTS}" >> $GITHUB_ENV
-
-      - name: Checkout BASE
-        if: ${{ env.DIFF_DOCUMENTS }}
-        uses: actions/checkout@v3
 
       - name: Checkout HEAD
         if: ${{ env.DIFF_DOCUMENTS }}
