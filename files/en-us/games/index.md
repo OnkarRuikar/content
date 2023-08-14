@@ -8,11 +8,17 @@ page-type: landing-page
 
 Gaming is one of the most popular computer activities. New technologies are constantly arriving to make it possible to develop better and more powerful games that can be run in any standards-compliant web browser.
 
-## Develop web games
+## Develop web games 
 
 Welcome to the MDN game development center! In this area of the site, we provide resources for web developers wanting to develop games. You will find many useful tutorials and technique articles in the main menu on the left, so feel free to explore.
 
 We've also included a reference section so you can easily find information about all the most common APIs used in game development.
+
+```css
+div {
+  background: red;
+}
+```
 
 > **Note:** Creating games on the web draws on a number of core web technologies such as HTML, CSS, and JavaScript. The [Learning Area](/en-US/docs/Learn) is a good place to go to get started with the basics.
 
@@ -25,6 +31,9 @@ To get started, see:
 - [About Emscripten](https://emscripten.org/docs/introducing_emscripten/about_emscripten.html) for an introduction including high-level details.
 - [Download and Install](https://emscripten.org/docs/getting_started/downloads.html) for installing the toolchain.
 - [Emscripten Tutorial](https://emscripten.org/docs/getting_started/Tutorial.html) for a tutorial to teach you how to get started.
+- abc
+- defg
+- hijk
 
 ## Examples
 
