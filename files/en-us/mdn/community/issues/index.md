@@ -212,7 +212,7 @@ To whoever fixes this issue, it looks like the following is needed:
 - Update the compatibility data at Link-X
 ```
 
-#### Set other labels
+#### Set other labels1
 
 Next, set the following labels as appropriate:
 

@@ -52,7 +52,7 @@ const s = Boolean(myString); // initial value of true
 
 > **Warning:** You should rarely find yourself using `Boolean` as a constructor.
 
-### Boolean coercion
+### Boolean coercion1
 
 Many built-in operations that expect booleans first coerce their arguments to booleans. [The operation](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-toboolean) can be summarized as follows:
 
