@@ -1,16 +1,27 @@
 ---
 title: Game development
-slug: Games
 page-type: landing-page
+slug: Games
 ---
 
 {{GamesSidebar}}
 
 Gaming is one of the most popular computer activities. New technologies are constantly arriving to make it possible to develop better and more powerful games that can be run in any standards-compliant web browser.
 
-## Develop web games
+```css
+body { background-color: aqua; }
+div {
+  color: red;
+}
+```
+
+# Develop web games
 
 Welcome to the MDN game development center! In this area of the site, we provide resources for web developers wanting to develop games. You will find many useful tutorials and technique articles in the main menu on the left, so feel free to explore.
+
+* item 1
++ item 2
+- item 3
 
 We've also included a reference section so you can easily find information about all the most common APIs used in game development.
 
