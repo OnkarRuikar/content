@@ -160,7 +160,3 @@ The techniques below describe each composite role as well as their required and 
 - [`aria-rowindex`](/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-rowindex)
 - [`aria-rowspan`](/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-rowspan)
 - [`aria-setsize`](/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-setsize)
-
-### MicrosoftEdge-specific properties
-
-- [`x-ms-aria-flowfrom`](/en-US/docs/Web/Accessibility/ARIA) {{Non-standard_Inline}}
