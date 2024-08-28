@@ -55,6 +55,7 @@ There's a few points to keep in mind about `calc()`:
 
 ### Rules and best practices while using `calc()`
 
+- my new infot
 - The `+` and `-` operators **must be surrounded by {{Glossary("whitespace")}}**. For instance, `calc(50% -8px)` will be parsed as "a percentage followed by a negative length" — which is an invalid expression — while `calc(50% - 8px)` is "a percentage followed by a subtraction operator and a length". Likewise, `calc(8px + -50%)` is treated as "a length followed by an addition operator and a negative percentage".
 - The `*` and `/` operators do not require whitespace, but adding it for consistency is recommended.
 - It is permitted to nest `calc()` functions, in which case, the inner ones are treated as simple parentheses.
