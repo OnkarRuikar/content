@@ -19,8 +19,9 @@ jobs:
           sparse-checkout: |
             .vscode/ignore-list.txt
             .vscode/terms-abbreviations.txt
-            scripts/sort_and_unique_file_lines.js
             .nvmrc
+            package.json
+            scripts/sort_and_unique_file_lines.js
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v4
