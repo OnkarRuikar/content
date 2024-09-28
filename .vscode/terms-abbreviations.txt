@@ -74,8 +74,8 @@ Verou
 vmin
 Weyl
 WHATWG
-worklets
 Willee
+worklets
 Yari
 Yarusome
 Zstandard
