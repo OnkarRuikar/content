@@ -126,6 +126,9 @@ jobs:
           TMPFILE=$(mktemp)
           git diff >"${TMPFILE}"
           git stash -u && git stash drop
+          echo dump diff file for troubleshooting
+          cat ${TMPFILE}
+
           reviewdog \
             -name="mdn-linter" \
             -f=diff \
