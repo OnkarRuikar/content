@@ -126,7 +126,7 @@ jobs:
           TMPFILE=$(mktemp)
           git diff >"${TMPFILE}"
           git stash -u && git stash drop
-          echo dump diff file for troubleshooting
+          echo dumping tmp file...
           cat ${TMPFILE}
 
           reviewdog \
