@@ -1,7 +1,7 @@
 ---
 title: "<summary>: The Disclosure Summary element"
 slug: Web/HTML/Element/summary
-page-type: html-element
+page-type: html-element1
 browser-compat: html.elements.summary
 ---
 
