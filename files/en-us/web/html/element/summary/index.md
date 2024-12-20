@@ -1,7 +1,7 @@
 ---
 title: "<summary>: The Disclosure Summary element"
 slug: Web/HTML/Element/summary
-page-type: html-element
+page-type: html-element1
 browser-compat: html.elements.summary
 ---
 
@@ -27,7 +27,7 @@ The content of the `<details>` provides the {{glossary("accessible description")
 
 If a `<details>` element's first child is not a `<summary>` element, the {{Glossary("user agent")}} will use a default string (typically "Details") as the label for the disclosure box.
 
-### Default style
+##### Default style
 
 Per the HTML specification, the default style for `<summary>` elements includes `display: list-item`. This makes it possible to change or remove the icon displayed as the disclosure widget next to the label from the default, which is typically a triangle.
 
@@ -60,9 +60,9 @@ A basic example showing the use of `<summary>` in a {{HTMLElement("details")}} e
 
 {{EmbedLiveSample("Basic_example", 650, 120)}}
 
-### Summaries as headings
+### Summaries as headings  
 
-You can use heading elements in `<summary>`, like this:
+You can use heading elements in `<summary>`, like this abc:
 
 ```html
 <details open>
@@ -156,7 +156,7 @@ The CSS includes the `[open]` [attribute selector](/en-US/docs/Web/CSS/Attribute
 
 #### HTML
 
-```html-nolint
+```html
 <details>
   <h1>Quotes from Helen Keller</h1>
   <summary>On women's rights</summary>
