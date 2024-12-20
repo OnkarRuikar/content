@@ -178,7 +178,7 @@ jobs:
           if [[ ${PRETTIER_FAILED} == 'true' ]]; then
             echo -e "\n🪵 Logs from Prettier formatter:"
             echo "${PRETTIER_LOG}"
-            echo -e "\nYou can use Prettier playground to format the files online: https://prettier.io/playground/#N4Igxg9gdgLgprEAuEIA0IIAcYEtoDOyoAhgE5kQDuACuQkSiQDZUkCeRGARmSWAGs4MAMokAtnAAyuKHGQAzFgTg8+g4SKz9ZAc2QwyAV1UgV43AeOm4ADyxwyuSbBYAVR1HK44jJcxUMAj1mOABFIwh4RWVTACsCWxEQ8MjopH9AkABHNLgaSixGEBICAFo5OAATavQQQxJcZj0AYQhxcRJkEuZmOuCoXVCAQRhDXG4jeBpHGTkYgNMACxhxZgB1Jdx4Am0wOBEGbdwAN232brACLhATkwBJKBrYETAnHGGnkRh2UIWsrCUFTrPhYbqA3yOE7yDCyFRkGAFEi6Tr-UzaMjw7qdMgCKrUKB1QGyGDrXBVGBLZAADgADBgyHBcrhGUiUV0MrEMDASNwyRSqUgAEwYIwqNy8vxckBwcTcao1KpSEiDIzIuAAMQgZE6Yz03RIUwgIAAviagA \n"
+            echo -e "\nYou can use Prettier playground to format the files online: https://prettier.io/playground/#N4Igxg9gdgLgprEAuEBiABABwIYGd7oIwCWATnOgGbEA2FAFnOSADQgSYnS7KjamkIAdwAK-BDxTYaQ7AE8ebAEalsYANZwYAZWwBbOABliUOMkrTccZao1btOMCYDmyGKQCu1kFb3E3nt5wAB6YTMQGsNIAKkxQ-MRwkhY0Vmy4LnQAih4Q8OaW3gBWuMHamXA5eWZIKWkgAI658CKCmJIgeAC0pnAAJv2sIO7YtC4AwhB6etjInTQ0QxlQznQAgjDuxEoeLUzGpgWp3vQwejQA6vTE8LiOcNoSN8QAbjdyc2C4iiAvXgCSUAGsG0YFIxE4ayB2hgcjoR3qmEEVguqkwcyRSSYLzMbBMVlIMFa2GcMwR3hwpAJcxmpHUfWEUCGSJMMAuxD6MHoyAAHAAGNjkJpkODE0mzWqFNgwbBKdmc7lIABMbA8VmisuSUpAcD0Sn6Az6hmwKw8JLgADEIKQZpsXHNsLsICAAL4uoA \n"git 
           fi
 
           exit 1
