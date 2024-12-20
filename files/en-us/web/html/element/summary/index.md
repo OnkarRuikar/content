@@ -60,9 +60,9 @@ A basic example showing the use of `<summary>` in a {{HTMLElement("details")}} e
 
 {{EmbedLiveSample("Basic_example", 650, 120)}}
 
-### Summaries as headings
+### Summaries as headings  
 
-You can use heading elements in `<summary>`, like this:
+You can use heading elements in `<summary>`, like this abc:
 
 ```html
 <details open>
