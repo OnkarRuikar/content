@@ -156,9 +156,9 @@ The CSS includes the `[open]` [attribute selector](/en-US/docs/Web/CSS/Attribute
 
 #### HTML
 
-```html-nolint
+```html
 <details>
-  <h1>Quotes from Helen Keller</h1>
+  <h1>Quotes from Helen Keller</h2>
   <summary>On women's rights</summary>
   <p>
     <q>We have prayed, we have coaxed, we have begged, for the vote, with the
