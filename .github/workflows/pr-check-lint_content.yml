@@ -166,18 +166,18 @@ jobs:
           echo -e "\nPlease fix all the linting issues mentioned in the following logs and in the PR review comments."
 
           if [[ ${MD_LINT_FAILED} == 'true' ]]; then
-            echo -e "\nLogs from markdownlint:"
+            echo -e "\n🪵 Logs from markdownlint:"
             echo "${MD_LINT_LOG}"
           fi
 
           if [[ ${FM_LINT_FAILED} == 'true' ]]; then
-            echo -e "\nLogs from front-matter linter:"
+            echo -e "\n🪵 Logs from front-matter linter:"
             echo "${FM_LINT_LOG}"
           fi
 
           if [[ ${PRETTIER_FAILED} == 'true' ]]; then
-            echo -e "\nLogs from Prettier formatter:"
+            echo -e "\n🪵 Logs from Prettier formatter:"
             echo "${PRETTIER_LOG}"
             echo -e "\nYou can use Prettier playground to format the files online: https://prettier.io/playground/#N4Igxg9gdgLgprEAuEIA0IIAcYEtoDOyoAhgE5kQDuACuQkSiQDZUkCeRGARmSWAGs4MAMokAtnAAyuKHGQAzFgTg8+g4SKz9ZAc2QwyAV1UgV43AeOm4ADyxwyuSbBYAVR1HK44jJcxUMAj1mOABFIwh4RWVTACsCWxEQ8MjopH9AkABHNLgaSixGEBICAFo5OAATavQQQxJcZj0AYQhxcRJkEuZmOuCoXVCAQRhDXG4jeBpHGTkYgNMACxhxZgB1Jdx4Am0wOBEGbdwAN232brACLhATkwBJKBrYETAnHGGnkRh2UIWsrCUFTrPhYbqA3yOE7yDCyFRkGAFEi6Tr-UzaMjw7qdMgCKrUKB1QGyGDrXBVGBLZAADgADBgyHBcrhGUiUV0MrEMDASNwyRSqUgAEwYIwqNy8vxckBwcTcao1KpSEiDIzIuAAMQgZE6Yz03RIUwgIAAviagA \n"
-          fi
+
           exit 1
