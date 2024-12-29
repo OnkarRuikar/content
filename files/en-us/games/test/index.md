@@ -6,7 +6,6 @@ l10n:
 ---
 
 {{APIRef("Input Device Capabilities API")}}{{SeeCompatTable}}
----
 
 {{domxref("UIEvent")}} 接口的 **`sourceCapabilities `** 只读属性返回 {{domxref('InputDeviceCapabilities')}} 接口的一个实例，该实例提供有关负责生成触摸事件的物理设备的信息。如果没有输入设备对事件负责，则返回 `null`。
 
