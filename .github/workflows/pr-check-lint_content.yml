@@ -86,6 +86,7 @@ jobs:
 
           echo "crlf line ending check"
           CRLF_FAILED=true
+          git ls-files --eol ${files_to_lint}
           CRLF_LOG=$(git ls-files --eol ${files_to_lint} | grep -E 'w/(mixed|crlf)') || CRLF_FAILED=false
           echo "CRLF_LOG<<${EOF}" >> $GITHUB_ENV
           echo "${CRLF_LOG}" >> $GITHUB_ENV
@@ -122,6 +123,7 @@ jobs:
           fi
 
           # info for troubleshooting
+          echo CRLF_FAILED=${CRLF_FAILED}
           echo MD_LINT_FAILED=${MD_LINT_FAILED}
           echo FM_LINT_FAILED=${FM_LINT_FAILED}
           echo PRETTIER_FAILED=${PRETTIER_FAILED}
