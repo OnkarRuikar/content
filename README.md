@@ -1,3 +1,4 @@
+![grok_image_xigou9e](https://github.com/user-attachments/assets/0bf8852b-4e9a-4ba1-a556-810d04963507)
 # Welcome to MDN Web Docs
 
 ![github-profile](https://user-images.githubusercontent.com/10350960/166113119-629295f6-c282-42c9-9379-af2de5ad4338.png)
